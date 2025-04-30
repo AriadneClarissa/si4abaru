@@ -2,17 +2,17 @@
 
 <table>
     <tr>
-        <th>nama</th>
+        <th>Nama</th>
         <th>Singkatan</th>
         <th>Dekan</th>
         <th>Wakil Dekan</th>
     </tr>
-@foreach ($fakultlas as $item)
+@foreach ($fakultas as $item)
     <tr>
-        <td>{{ $item->nama }}</td>
-        <td>{{ $item->singkatan }}</td>
-        
+        <td>{{ $item->nama}}</td> 
+        <td>{{ $item->singkatan}} </td>
+        <td>{{ $item->dekan}}</td>
+        <td>{{ $item->wakil_dekan}}</td>
     </tr>
-    {($item->nama )} {{$item->singkatan}} <br>
 @endforeach
 </table>
