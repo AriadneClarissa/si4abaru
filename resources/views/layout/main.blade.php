@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <!--begin::Head-->
@@ -43,7 +42,7 @@
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="{{ asset('css/adminlte.css')}}" />
+    <link rel="stylesheet" href= {{ asset('css/adminlte.css') }} />
     <!--end::Required Plugin(AdminLTE)-->
   </head>
   <!--end::Head-->
@@ -87,7 +86,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="{{ asset('assets/img/user1-128x128.jpg')}}"
+                        src="{{asset('assets/img/user1-128x128.jpg')}}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -113,7 +112,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="{{ asset('assets/img/user8-128x128.jpg')}}"
+                        src="{{asset('assets/img/user8-128x128.jpg')}}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -139,7 +138,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="{{ asset('assets/img/user3-128x128.jpg')}}"
+                        src="{{asset('assets/img/user3-128x128.jpg')}}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -204,7 +203,7 @@
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img
-                  src="{{ asset('assets/img/user2-160x160.jpg')}}"
+                  src="{{asset('assets/img/user2-160x160.jpg')}}"
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
@@ -214,7 +213,7 @@
                 <!--begin::User Image-->
                 <li class="user-header text-bg-primary">
                   <img
-                    src="{{ asset('assets/img/user2-160x160.jpg')}}"
+                    src="{{asset('assets/img/user2-160x160.jpg')}}"
                     class="rounded-circle shadow"
                     alt="User Image"
                   />
@@ -258,7 +257,7 @@
           <a class='brand-link' href='/dist/pages/'>
             <!--begin::Brand Image-->
             <img
-              src="{{ asset('assets/img/AdminLTELogo.png')}}"
+              src="{{asset('assets/img/AdminLTELogo.png')}}"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
@@ -310,19 +309,19 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class='nav-link' href='{{ url('fakultas')}}'>
+                <a class='nav-link' href='{{url('fakultas')}}'>
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Fakultas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class='nav-link' href='{{ url('prodi')}}'>
+                <a class='nav-link' href='{{url('prodi')}}'>
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Program Studi</p>
+                  <p>Prodi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class='nav-link' href='{{ url('mahasiswa')}}'>
+                <a class='nav-link' href='{{url('mahasiswa')}}'>
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Mahasiswa</p>
                 </a>
@@ -731,28 +730,21 @@
       <!--end::Sidebar-->
       <!--begin::App Main-->
       <main class="app-main">
-        <div class="app-content-header">
-            <!--begin::Container-->
-            <div class="container-fluid">
-              <!--begin::Row-->
-              <div class="row">
-                <div class="col-sm-6"><h3 class="mb-0">@yield('title')</h3></div>
-                <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
-                  </ol>
-                </div>
-              </div>
-              <!--end::Row-->
-            </div>
-            <!--end::Container-->
-          </div>
         <!--begin::App Content Header-->
         <div class="app-content-header">
           <!--begin::Container-->
           <div class="container-fluid">
-            @yield('content')
+            <!--begin::Row-->
+            <div class="row">
+              <div class="col-sm-6"><h3 class="mb-0">@yield('title')</h3></div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
+                </ol>
+              </div>
+            </div>
+            <!--end::Row-->
           </div>
           <!--end::Container-->
         </div>
@@ -762,10 +754,7 @@
           <!--begin::Container-->
           <div class="container-fluid">
             <!--begin::Row-->
-            <div class="row">
-              <div class="col-12">
-                <!-- Default box -->
-                @yield('content')
+            @yield('content')
             <!--end::Row-->
           </div>
         </div>
@@ -808,7 +797,7 @@
       crossorigin="anonymous"
     ></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="{{ asset('js/adminlte.js')}}"></script>
+    <script src=" {{asset ('js/adminlte.js')}}"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
       const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
