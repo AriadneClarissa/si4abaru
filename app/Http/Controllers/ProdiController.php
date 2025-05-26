@@ -10,68 +10,55 @@ class ProdiController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // panggil model prodi menggunakan eloquent
-        $prodi = Prodi::all(); //perintah SQL select * from prodi
-        //dd($prodi);
+        //panggil model prodi menggunakan eloquent
+        $prodi = Prodi::all(); // perinta SQL select * from Prodi
+        // dd($prodi); // dump and die
         return view('prodi.index')->with('prodi', $prodi); //selain compact, bisa menggunakan with()
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $fakultas = Fakultas::all();
-        return view('prodi.create', compact('fakultas'));
+        $fakultas = Fakultas::all(); 
+        return view ('prodi.create', compact ('fakultas'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-
-    
-     public function store(Request $request)
+    public function store(Request $request)
     {
         $input = $request->validate([
-            'nama' => 'required|unique:fakultas',
+            'nama' => 'required|unique:prodi',
             'singkatan' => 'required|max:5',
             'kaprodi' => 'required',
             'sekretaris' => 'required',
-            'fakultas_id' => 'required',
+            'fakultas_id' => 'required|exists:fakultas,id',
         ]);
-        // simpan data ke tabel prodi
+
         Prodi::create($input);
 
-        //redirect ke route prodi.index
         return redirect()->route('prodi.index')->with('success', 'Program studi berhasil ditambahkan.');
     }
 
+
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Prodi  $prodi
-     * @return \Illuminate\Http\Response
      */
-    public function show(Prodi $prodi)
+    public function show($prodi)
     {
-        //
+        $prodi = Prodi::findOrFail($prodi); // mencari fakultas berdasarkan id
+        //dd($prodi); // dump and die
+        return view('prodi.show', compact('prodi')); // menampilkan detail fakultas
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Prodi  $prodi
-     * @return \Illuminate\Http\Response
      */
     public function edit(Prodi $prodi)
     {
@@ -80,10 +67,6 @@ class ProdiController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prodi  $prodi
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Prodi $prodi)
     {
@@ -92,12 +75,15 @@ class ProdiController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Prodi  $prodi
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Prodi $prodi)
+    public function destroy($prodi)
     {
-        //
+        // Temukan data prodi berdasarkan ID
+        $prodi = Prodi::findOrFail($prodi);
+        // dd($prodi);
+        // Hapus data prodi
+        $prodi->delete();
+        // Redirect ke route prodi.index
+        return redirect()->route('prodi.index')->with('success', 'Program Studi berhasil dihapus.');
     }
 }

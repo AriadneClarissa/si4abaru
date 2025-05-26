@@ -4,7 +4,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">List Fakultas</h3>
+      <h3 class="card-title">List Mahasiswa</h3>
       <div class="card-tools">
         <button
           type="button"
@@ -58,7 +58,7 @@
                           <form action="{{ route('mahasiswa.destroy', $item->id)}}" method="POST" class="d-inline">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger show_comfirm" data-toggle="tooltip" title="Delete" data-nama="{{ $item->nama}}">Delete</button>
+                            <button type="submit" class="btn btn-danger show_confirm" data-toggle="tooltip" title='Delete' data-nama='{{ $item->nama}}'>Delete</button>
                           </form>
                         </td>
                     </tr>

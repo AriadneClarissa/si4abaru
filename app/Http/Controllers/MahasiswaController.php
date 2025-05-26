@@ -78,6 +78,7 @@ class MahasiswaController extends Controller
      */
     public function show(Mahasiswa $mahasiswa)
     {
+        $mahasiswa = Mahasiswa::findOrFail($mahasiswa);
         //dd($mahasiswa);
         return view('mahasiswa.show', compact('mahasiswa'));
     }
@@ -111,8 +112,22 @@ class MahasiswaController extends Controller
      * @param  \App\Models\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy($mahasiswa)
     {
-        //
+        $mahasiswa = Mahasiswa::findOrFail($mahasiswa);
+        // dd($fakultas);
+
+        // hapus foto jika ada
+        if ($mahasiswa->foto) {$fotoPath = public_path('images/' . $mahasiswa->foto);
+            if (file_exists($fotoPath)) {
+                unlink($fotoPath); //hapus file foto
+            }
+        }
+
+        //hapus data mahasiswa
+        $mahasiswa->delete();
+
+        //redirect ke route mahasiswa.index
+        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa berhasil dihapus.');
     }
 }

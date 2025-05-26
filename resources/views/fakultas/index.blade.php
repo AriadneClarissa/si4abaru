@@ -48,12 +48,12 @@
                         <td> {{$item->dekan}}</td>
                         <td> {{$item->wakil_dekan}}</td>
                         <td>
-                          <a href="{{ route('mahasiswa.show', $item->id) }}" class="btn btn-info">Show</a>
-                          <a href="{{ route('mahasiswa.edit', $item->id )}}" class="btn btn-warning">Edit</a>
-                          <form action="{{ route('mahasiswa.destroy', $item->id)}}" method="POST" class="d-inline">
+                          <a href="{{ route('fakultas.show', $item->id) }}" class="btn btn-info">Show</a>
+                          <a href="{{ route('fakultas.edit', $item->id )}}" class="btn btn-warning">Edit</a>
+                          <form action="{{ route('fakultas.destroy', $item->id)}}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger show_comfirm" data-toggle="tooltip" title="Delete" data-nama="{{ $item->nama}}">Delete</button>
+                            <button type="submit" class="btn btn-danger show_confirm" data-toggle="tooltip" title='Delete' data-nama='{{ $item->nama}}'>Delete</button>
                           </form>
                         </td>
                     </tr>

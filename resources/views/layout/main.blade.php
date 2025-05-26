@@ -824,8 +824,39 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!--sweetalert cjs-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-    <script type="text/javascript">
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        var nama = $(this).data("nama");
+        event.preventDefault();
+        swal({
+                title: `Apakah Anda yakin ingin menghapus data ${nama} ini?`,
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+    });
+</script>
+@session('success')
+    <script>
+    swal({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success"
+});
+</script>
+@endsession
+
+</body>
+</html>
     <!--end::Script-->
   </body>
   <!--end::Body-->
