@@ -42,23 +42,26 @@ class SesiController extends Controller
         //dd($sesi);
         return view('sesi.edit', compact('sesi'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, $sesi)
     {
-        // Logic to update the specified resource in storage
-        // $sesi = Sesi::findOrFail($id);
-        // $input = $request->validate([
-        //     'nama' => 'required|unique:sesi,nama,' . $sesi->id,
-        //     'tanggal_mulai' => 'required|date',
-        //     'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
-        // ]);
-        // $sesi->update($input);
-        // return redirect()->route('sesi.index')->with('success', 'Sesi berhasil diperbarui.');
+        $sesi = Sesi::findOrFail($sesi);
+        // validasi input
+        $input = $request->validate([
+            'nama' => 'required',
+        ]);
+        // update data sesi
+        $sesi->update($input);
+        // redirect ke route sesi.index
+        return redirect()->route('sesi.index')->with('success', 'Sesi berhasil diperbarui.');
     }
-    public function destroy($id)
+    public function destroy($sesi)
     {
-        // Logic to remove the specified resource from storage
-        // $sesi = Sesi::findOrFail($id);
-        // $sesi->delete();
-        // return redirect()->route('sesi.index')->with('success', 'Sesi berhasil dihapus.');
+        $sesi = Sesi::findOrFail($sesi);
+        // dd($sesi);
+
+        // Hapus data sesi
+        $sesi->delete();
+        // Redirect ke route sesi.index
+        return redirect()->route('sesi.index')->with('success', 'Sesi berhasil dihapus.');
     }
 }

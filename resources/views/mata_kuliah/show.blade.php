@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','Sesi')
+@section('title','Mata Kuliah')
 
 @section('content')
 <!--begin::Row-->
@@ -8,7 +8,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><b>List Sesi</b></h3>
+          <h3 class="card-title"><b>List Mata Kuliah</b></h3>
           <div class="card-tools">
             <button
               type="button"
@@ -32,8 +32,20 @@
         <div class="card-body">
             <table class="table table-bordered table-striped">
                 <tr>
-                    <th>Nama</th>
-                    <td>{{ $sesi->nama}}</td>
+                    <th>Kode Mata Kuliah</th>
+                    <td>{{ $mataKuliah->kode_mk}}</td>
+                </tr>
+                <tr>
+                    <th>Nama Mata Kuliah</th>
+                    <td>{{ $mataKuliah->nama}}</td>
+                </tr>
+                <tr>
+                    <th>Prodi</th>
+                    <td>{{ $mataKuliah->prodi->nama}}</td>
+                </tr>
+                <tr>
+                    <th>Fakultas</th>
+                    <td>{{ $mataKuliah->prodi->fakultas->nama}}</td>
                 </tr>
             </table>
         </div>
