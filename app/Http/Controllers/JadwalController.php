@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
-use App\Models\MataKuliah;
 use App\Models\Sesi;
+use App\Models\MataKuliah;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,8 +12,6 @@ class JadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -25,22 +23,17 @@ class JadwalController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $sesi = Sesi::all(); // ambil semua data sesi
         $mataKuliah = MataKuliah::all(); // ambil semua data mata kuliah
-        $dosen = User::all(); // ambil semua dosen
+        $dosen = User::where('role', 'dosen')->get(); // ambil semua dosen dengan role 'dosen'
         return view('jadwal.create', compact('sesi', 'mataKuliah', 'dosen'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -61,9 +54,6 @@ class JadwalController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
      */
     public function show(Jadwal $jadwal)
     {
@@ -73,25 +63,18 @@ class JadwalController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
      */
     public function edit(Jadwal $jadwal)
     {
         // dd($jadwal);
         $sesi = Sesi::all(); // ambil semua data sesi
         $mataKuliah = MataKuliah::all(); // ambil semua data mata kuliah
-        $dosen = User::all(); // Ambil semua user dulu
+        $dosen = User::where('role', 'dosen')->get(); // ambil semua dosen dengan role 'dosen'
         return view('jadwal.edit', compact('jadwal', 'sesi', 'mataKuliah', 'dosen'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Jadwal $jadwal)
     {
@@ -112,9 +95,6 @@ class JadwalController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Jadwal $jadwal)
     {

@@ -1,12 +1,14 @@
 @extends('layout.main')
-@section('title', 'Mahasiswa')
+@section('title','Mahasiswa')
+
 @section('content')
+<!--begin::Row-->
 <div class="row">
     <div class="col-12">
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">List Mahasiswa</h3>
+          <h3 class="card-title"> List Mahasiswa </h3>
           <div class="card-tools">
             <button
               type="button"
@@ -27,44 +29,45 @@
             </button>
           </div>
         </div>
-        <div class="card-body"> 
-            <table class="table">
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
                 <tr>
-                    <tr>
-                        <td colspan="2">
-                            <img src="{{ asset('images/' . $mahasiswa->foto) }}" alt="Foto Mahasiswa" width="200px">        
-                        </td>
-                    </tr>
+                    <th>Nama</th>
+                    <td>{{ $mahasiswa->nama}}</td>
                 </tr>
                 <tr>
-                    <th> Nama </th>
-                    <td> {{$mahasiswa->nama}}</td>
+                    <th>NPM</th>
+                    <td>{{ $mahasiswa->npm}}</td>
                 </tr>
                 <tr>
-                    <th> NPM </th>
-                    <td> {{$mahasiswa->npm}}</td>
+                    <th>Jenis Kelamin</th>
+                    <td>{{ $mahasiswa->jk}}</td>
                 </tr>
                 <tr>
-                    <th> Tempat, Tanggal Lahir </th>
-                    <td> {{$mahasiswa->tanggal_lahir}}, {{$mahasiswa->tempat_lahir}}</td>
+                    <th>Tempat, Tanggal Lahir</th>
+                    <td>{{ $mahasiswa->tempat_lahir}}, {{ $mahasiswa->tanggal_lahir}}</td>
                 </tr>
                 <tr>
-                    <th> Asal SMA </th>
-                    <td> {{$mahasiswa->asal_sma}}</td>
+                    <th>Asal SMA</th>
+                    <td>{{ $mahasiswa->asal_sma}}</td>
                 </tr>
                 <tr>
-                    <th> Program Studi </th>
-                    <td> {{$mahasiswa->prodi->nama}}</td>
+                    <th>Prodi</th>
+                    <td>{{ $mahasiswa->prodi->nama}}</td>
                 </tr>
                 <tr>
-                    <th> Fakultas </th>
-                    <td> {{$mahasiswa->prodi->fakultas->nama}}</td>
+                    <th>Fakultas</th>
+                    <td>{{ $mahasiswa->prodi->fakultas->nama}}</td>
                 </tr>
-                 
-                 
-                
+                <tr>
+                    <th>Foto</th>
+                    <td><img src="{{ asset('foto/'.$mahasiswa->foto)}}" class="img-fluid" width="80px"></td>
+                </tr>
             </table>
         </div>
+      </div>
+        <!-- /.card -->
     </div>
 </div>
+<!--end::Row-->
 @endsection

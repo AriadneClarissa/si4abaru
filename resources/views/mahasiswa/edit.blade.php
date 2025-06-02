@@ -7,7 +7,7 @@
         <div class="card card-primary card-outline mb-4">
             <!--begin::Header-->
             <div class="card-header">
-                <div class="card-title"><b>Edit Mahasiswa</b></div>
+                <div class="card-title"> Edit Mahasiswa </div>
             </div>
             <!--end::Header-->
 
@@ -35,12 +35,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label><br>
-                        <input type="radio" name="jenis_kelamin" value="L"
-                            {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin ?? 'L') == 'L' ? 'checked' : '' }}> Laki-laki
-                        <input type="radio" name="jenis_kelamin" value="P"
-                            {{ old('jenis_kelamin', $mahasiswa->jenis_kelamin ?? 'L') == 'P' ? 'checked' : '' }}> Perempuan
-                        @error('jenis_kelamin')
+                        <label for="jk" class="form-label">Jenis Kelamin</label><br>
+                        <input type="radio" name="jk" value="L"
+                            {{ old('jk', $mahasiswa->jk ?? 'L') == 'L' ? 'checked' : '' }}> Laki-laki
+                        <input type="radio" name="jk" value="P"
+                            {{ old('jk', $mahasiswa->jk ?? 'L') == 'P' ? 'checked' : '' }}> Perempuan
+                        @error('jk')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

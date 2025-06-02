@@ -32,7 +32,7 @@
         <div class="card-body">
           <a href="{{ route('jadwal.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table table-bordered table-striped">
-                <tr>
+                <tr class="text-center">
                     <th>Tahun Akademik</th>
                     <th>Kode Semester</th>
                     <th>Kelas</th>
@@ -42,7 +42,7 @@
                     <th>Aksi</th>
                 </tr>
                 @foreach ($jadwal as $item)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $item->tahun_akademik }}</td>
                     <td>{{ $item->kode_smt}}</td>
                     <td>{{ $item->kelas}}</td>

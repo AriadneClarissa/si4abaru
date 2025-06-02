@@ -32,14 +32,14 @@
         <div class="card-body">
           <a href="{{ route('mata_kuliah.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table table-bordered table-striped">
-                <tr>
+                <tr class="text-center">
                     <th>Kode Mata Kuliah</th>
                     <th>Nama Mata Kuliah</th>
                     <th>Prodi</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($mataKuliah as $item)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $item->kode_mk }}</td>
                     <td>{{ $item->nama}}</td>
                     <td>{{ $item->prodi->nama}}</td>

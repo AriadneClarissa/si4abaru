@@ -314,7 +314,7 @@
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('sesi')}}'>
-                  <i class="nav-icon bi bi-building"></i>
+                  <i class="nav-icon bi bi-calendar-date"></i>
                   <p>Sesi</p>
                 </a>
               </li>
@@ -326,7 +326,7 @@
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('jadwal')}}'>
-                  <i class="nav-icon bi bi-calendar-check"></i>
+                  <i class="nav-icon bi bi-calendar3"></i>
                   <p>Jadwal</p>
                 </a>
               </li>
