@@ -33,6 +33,7 @@
             <a href="{{ route('mahasiswa.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table">
                 <tr class="text-center">
+                    <th>Foto</th>
                     <th>NPM</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
@@ -41,7 +42,7 @@
                     <th>Asal SMA</th>
                     <th>Prodi</th>
                     <th>Fakultas</th>
-                    <th>Foto</th>
+                    
                     <th>Aksi</th>
                 </tr>
                 @foreach ($mahasiswa as $item)

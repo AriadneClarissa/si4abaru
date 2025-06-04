@@ -218,7 +218,7 @@
                     alt="User Image"
                   />
                   <p>
-                    {{ Auth::user()->name }} - Dosen/Admin
+                    {{ Auth::user()->name }} - Dosen/Admin 
                     <small>Member since Nov. 2023</small>
                   </p>
                 </li>
@@ -235,17 +235,19 @@
                 </li>
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
-                <li class="user-footer d-flex justify-content-between">
-                      <!-- Profile Link -->
+                <li class="user-footer">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
-                      <!-- Authentication -->
+                  <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                  <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();" class="btn btn-default btn-flat float-end">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();" 
+                            class="btn btn-default btn-flat float-end"
+                            style="width: auto; padding: 4px 12px;">
+                            {{ __('Log Out') }}
+                          </x-dropdown-link>
                         </form>
                 </li>
                 <!--end::Menu Footer-->
@@ -314,19 +316,19 @@
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('sesi')}}'>
-                  <i class="nav-icon bi bi-calendar-date"></i>
+                  <i class="nav-icon bi bi-clock"></i>
                   <p>Sesi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('mata_kuliah')}}'>
-                  <i class="nav-icon bi bi-journals"></i>
+                  <i class="nav-icon bi bi-journal-bookmark"></i>
                   <p>Mata Kuliah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('jadwal')}}'>
-                  <i class="nav-icon bi bi-calendar3"></i>
+                  <i class="nav-icon bi bi-table"></i>
                   <p>Jadwal</p>
                 </a>
               </li>
