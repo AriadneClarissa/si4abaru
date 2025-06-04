@@ -218,8 +218,8 @@
                     alt="User Image"
                   />
                   <p>
-                    {{ Auth::user()->name }} - Dosen/Admin 
-                    <small>Member since Nov. 2023</small>
+                    {{ Auth::user()->name }} - {{ strtoupper(Auth::user()->role) }} 
+
                   </p>
                 </li>
                 <!--end::User Image-->
@@ -316,19 +316,19 @@
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('sesi')}}'>
-                  <i class="nav-icon bi bi-clock"></i>
+                  <i class="nav-icon bi bi-clock-history"></i>
                   <p>Sesi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('mata_kuliah')}}'>
-                  <i class="nav-icon bi bi-journal-bookmark"></i>
+                  <i class="nav-icon bi bi-journals"></i>
                   <p>Mata Kuliah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('jadwal')}}'>
-                  <i class="nav-icon bi bi-table"></i>
+                  <i class="nav-icon bi bi-calendar2-week"></i>
                   <p>Jadwal</p>
                 </a>
               </li>

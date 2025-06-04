@@ -31,7 +31,11 @@
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">
-                <tr>
+              <tr>
+                    <th>Foto</th>
+                    <td><img src="{{ asset('foto/'.$mahasiswa->foto)}}" class="img-fluid" width="80px"></td>
+                </tr>  
+              <tr>
                     <th>Nama</th>
                     <td>{{ $mahasiswa->nama}}</td>
                 </tr>
@@ -59,10 +63,7 @@
                     <th>Fakultas</th>
                     <td>{{ $mahasiswa->prodi->fakultas->nama}}</td>
                 </tr>
-                <tr>
-                    <th>Foto</th>
-                    <td><img src="{{ asset('foto/'.$mahasiswa->foto)}}" class="img-fluid" width="80px"></td>
-                </tr>
+                
             </table>
         </div>
       </div>
