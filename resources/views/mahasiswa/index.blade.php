@@ -47,7 +47,7 @@
                 </tr>
                 @foreach ($mahasiswa as $item)
                 <tr class="text-center">
-                  <td><img src="foto/{{ $item->foto}}" width="80px"></td>
+                  <td><img src=" {{ $item->foto }}" width="80px" /></td>
                     <td>{{ $item->npm }}</td>
                     <td>{{ $item->nama}}</td>
                     <td>{{ $item->jk}}</td>
